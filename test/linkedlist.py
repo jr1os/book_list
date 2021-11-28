@@ -13,9 +13,20 @@ class Linkedlist:
                 pointer = pointer.next
             pointer.next = Node(elem)   
         else:
-            pointer = Node(elem)
+            self.head = Node(elem)
         self._size += 1
     
     def __len__(self):
         return self._size
-
+    
+    def __getitem__(self, index):
+        pointer = self.head
+        for i in range(index):
+            if pointer:
+                pointer = pointer.next
+            else:
+                raise IndexError("list index out of range")
+        if pointer:
+            return pointer.data
+        else:
+            raise IndexError("list index out  of range")
