@@ -30,3 +30,15 @@ class Linkedlist:
             return pointer.data
         else:
             raise IndexError("list index out  of range")
+            
+    def __setitem__(self, index, elem):
+        pointer = self.head
+        for i in range(index):
+            if pointer:
+                pointer = pointer.next
+            else:
+                raise IndexError("List index out of range")
+        if pointer:
+            pointer.data = elem
+        else:
+            raise IndexError("List index out of range")
